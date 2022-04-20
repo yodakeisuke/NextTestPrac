@@ -1,7 +1,4 @@
 import fetch from 'node-fetch'
-import { POST } from '../types/Types'
-
-type POSTS = POST[]
 
 export const getAllPostsData = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts/?_limit=10')
@@ -17,7 +14,7 @@ export const getAllTasksData = async () => {
 
 export const getAllPostIds = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts/?_limit=10')
-  const posts = await res.json() as POSTS
+  const posts = await res.json()
   return posts.map((post) => {
     return {
       params: {
